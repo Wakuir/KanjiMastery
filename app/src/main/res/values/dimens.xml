@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="very_small_spacing">5dp</dimen>
+    <dimen name="small_spacing">10dp</dimen>
+    <dimen name="default_spacing">20dp</dimen>
+    <dimen name="big_spacing">30dp</dimen>
+
+    <dimen name="title_icon_size">25dp</dimen>
+    <dimen name="section_card_icon_size">35dp</dimen>
+    <dimen name="section_card_size">75dp</dimen>
+
+    <dimen name="button_content">20dp</dimen>
+
+    <dimen name="low_rounding">5dp</dimen>
+    <dimen name="default_rounding">10dp</dimen>
+</resources>

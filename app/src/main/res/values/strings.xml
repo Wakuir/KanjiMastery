@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Kanji Mastery</string>
+
+    <!-- Top Bar -->
+    <string name="greeting_message">Hello, %1$s! \uD83D\uDC4B</string>
+    <string name="account_settings_description">Account Settings</string>
+
+    <!-- Progress Section -->
+    <string name="progress_section_title">Progress</string>
+    <string name="progress_section_kanji_learned">Kanji Learned : %1$d</string>
+    <string name="progress_section_radicals_learned">Radicals Learned : %1$d</string>
+    <string name="quick_start_button_label">Quick Start</string>
+
+    <!-- Daily Kanji Section -->
+    <string name="daily_kanji_section_title">Kanji of the Day</string>
+    <string name="daily_kanji_section_learn_button_label">Learn this Kanji</string>
+
+    <!-- Daily Goal Section -->
+    <string name="daily_goal_section_title">Today\'s goal</string>
+    <!-- TODO: Add goals formatting -->
+
+    <!-- Destination Prompts -->
+    <string name="destination_learn_prompt">Learn a new Kanji</string>
+    <string name="destination_radicals_prompt">Radicals Library</string>
+    <string name="destination_practice_prompt">Practice Drawing</string>
+    <string name="destination_library_prompt">Kanji Library</string>
+</resources>
