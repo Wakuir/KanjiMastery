@@ -1,5 +1,6 @@
 package fr.wakuir.kanjimastery.ui
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +15,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,210 +25,210 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import fr.wakuir.kanjimastery.Destination
 import fr.wakuir.kanjimastery.R
+import fr.wakuir.kanjimastery.ui.theme.KanjiMasteryTheme
 import fr.wakuir.kanjimastery.ui.theme.Typography
 
 @Composable
-fun HomeScreen() {
-    Column {
-        Column(
-            modifier = Modifier.padding(dimensionResource(R.dimen.default_spacing))
+fun HomeScreen(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier.padding(dimensionResource(R.dimen.default_spacing))
+    ) {
+        Row {
+            Text(
+                text = stringResource(R.string.greeting_message, "Alex"),
+                style = Typography.titleLarge,
+                modifier = Modifier.padding(bottom = dimensionResource(R.dimen.default_spacing))
+            )
+
+            Spacer(Modifier.weight(1f))
+
+            Icon(
+                painter = painterResource(R.drawable.account),
+                contentDescription = stringResource(R.string.account_settings_description),
+                modifier = Modifier.size(dimensionResource(R.dimen.title_icon_size))
+            )
+        }
+
+        Text(
+            text = stringResource(R.string.progress_section_title),
+            style = Typography.titleSmall,
+            modifier = Modifier.padding(bottom = dimensionResource(R.dimen.small_spacing))
+        )
+
+        Row {
+            Text(
+                text = stringResource(R.string.progress_section_kanji_learned, 32)
+            )
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            Text(
+                text = stringResource(R.string.progress_section_radicals_learned, 8),
+                style = Typography.bodyMedium
+            )
+        }
+
+        LinearProgressIndicator(
+            modifier = Modifier
+                .padding(
+                    top = dimensionResource(R.dimen.very_small_spacing),
+                    bottom = dimensionResource(R.dimen.small_spacing)
+                )
+                .fillMaxWidth(),
+            progress = { .3F },
+            drawStopIndicator = {},
+            gapSize = 0.dp,
+        )
+
+        Button(
+            onClick = {},
+            shape = RoundedCornerShape(dimensionResource(R.dimen.default_rounding)),
+            modifier = Modifier
+                .padding(top = dimensionResource(R.dimen.small_spacing))
+                .fillMaxWidth(),
         ) {
-            Row {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(vertical = dimensionResource(R.dimen.small_spacing))
+            ) {
                 Text(
-                    text = stringResource(R.string.greeting_message, "Alex"),
-                    style = Typography.titleLarge,
-                    modifier = Modifier.padding(bottom = dimensionResource(R.dimen.default_spacing))
+                    text = stringResource(R.string.quick_start_button_label),
+                    fontSize = dimensionResource(R.dimen.button_content).value.sp,
+                    modifier = Modifier.padding(end = dimensionResource(R.dimen.small_spacing))
                 )
 
-                Spacer(Modifier.weight(1f))
-
                 Icon(
-                    painter = painterResource(R.drawable.account),
-                    contentDescription = stringResource(R.string.account_settings_description),
+                    painter = painterResource(R.drawable.play_icon),
+                    contentDescription = stringResource(R.string.quick_start_button_label),
+                    modifier = Modifier.size(dimensionResource(R.dimen.button_content))
+                )
+            }
+        }
+
+        Text(
+            text = stringResource(R.string.daily_kanji_section_title),
+            style = Typography.bodyMedium,
+            fontWeight = FontWeight.SemiBold,
+            modifier = Modifier.padding(top = dimensionResource(R.dimen.default_spacing))
+        )
+
+        Row(
+            modifier = Modifier.padding(
+                top = dimensionResource(R.dimen.small_spacing),
+                bottom = dimensionResource(R.dimen.small_spacing)
+            )
+        ) {
+            Text(
+                text = "刀", fontSize = 45.sp, modifier = Modifier.padding(
+                    start = dimensionResource(R.dimen.small_spacing),
+                    end = dimensionResource(R.dimen.default_spacing)
+                )
+            )
+
+            Column {
+                Text(
+                    text = "Blade / Sword",
+                    style = Typography.bodyLarge,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier.padding(
+                        bottom = dimensionResource(R.dimen.very_small_spacing)
+                    )
+                )
+
+                Button(
+                    onClick = {},
+                    shape = RoundedCornerShape(dimensionResource(R.dimen.default_rounding)),
+                ) {
+                    Text(
+                        text = stringResource(R.string.daily_kanji_section_learn_button_label),
+                        style = Typography.bodyLarge,
+                        modifier = Modifier.padding(horizontal = dimensionResource(R.dimen.small_spacing))
+                    )
+                }
+            }
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(
+                top = dimensionResource(R.dimen.default_spacing),
+            ),
+        ) {
+            Box(
+                modifier = Modifier.padding(end = dimensionResource(R.dimen.small_spacing))
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.goals_icon),
+                    contentDescription = stringResource(R.string.daily_goal_section_title),
                     modifier = Modifier.size(dimensionResource(R.dimen.title_icon_size))
                 )
             }
 
             Text(
-                text = stringResource(R.string.progress_section_title),
-                style = Typography.titleSmall,
-                modifier = Modifier.padding(bottom = dimensionResource(R.dimen.small_spacing))
-            )
-
-            Row {
-                Text(
-                    text = stringResource(R.string.progress_section_kanji_learned, 32)
-                )
-
-                Spacer(modifier = Modifier.weight(1f))
-
-                Text(
-                    text = stringResource(R.string.progress_section_radicals_learned, 8),
-                    style = Typography.bodyMedium
-                )
-            }
-
-            LinearProgressIndicator(
-                modifier = Modifier
-                    .padding(
-                        top = dimensionResource(R.dimen.very_small_spacing),
-                        bottom = dimensionResource(R.dimen.small_spacing)
-                    )
-                    .fillMaxWidth(),
-                progress = { .3F },
-                drawStopIndicator = {},
-                gapSize = 0.dp,
-            )
-
-            Button(
-                onClick = {},
-                shape = RoundedCornerShape(dimensionResource(R.dimen.default_rounding)),
-                modifier = Modifier
-                    .padding(top = dimensionResource(R.dimen.small_spacing))
-                    .fillMaxWidth(),
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.padding(vertical = dimensionResource(R.dimen.small_spacing))
-                ) {
-                    Text(
-                        text = stringResource(R.string.quick_start_button_label),
-                        fontSize = dimensionResource(R.dimen.button_content).value.sp,
-                        modifier = Modifier.padding(end = dimensionResource(R.dimen.small_spacing))
-                    )
-
-                    Icon(
-                        painter = painterResource(R.drawable.play_icon),
-                        contentDescription = stringResource(R.string.quick_start_button_label),
-                        modifier = Modifier.size(dimensionResource(R.dimen.button_content))
-                    )
-                }
-            }
-
-            Text(
-                text = stringResource(R.string.daily_kanji_section_title),
+                text = stringResource(R.string.daily_goal_section_title),
                 style = Typography.bodyMedium,
                 fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.padding(top = dimensionResource(R.dimen.default_spacing))
+            )
+        }
+
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = dimensionResource(R.dimen.small_spacing))
+        ) {
+            Column(
+                modifier = Modifier.padding(start = 10.dp)
+            ) {
+                GoalCard(
+                    true,
+                    "Learn 2 new Kanji",
+                    modifier = Modifier.padding(top = dimensionResource(R.dimen.very_small_spacing))
+                )
+
+                GoalCard(true, "Review 5 radicals")
+                GoalCard(false, "Complete Daily Quiz")
+            }
+        }
+
+        Row(
+            modifier = Modifier.padding(top = dimensionResource(R.dimen.default_spacing))
+        ) {
+            SectionCard(
+                destination = Destination.Learn,
+                modifier = Modifier
+                    .padding(end = dimensionResource(R.dimen.very_small_spacing))
+                    .weight(1f)
             )
 
-            Row(
-                modifier = Modifier.padding(
-                    top = dimensionResource(R.dimen.small_spacing),
-                    bottom = dimensionResource(R.dimen.small_spacing)
-                )
-            ) {
-                Text(
-                    text = "刀", fontSize = 45.sp, modifier = Modifier.padding(
-                        start = dimensionResource(R.dimen.small_spacing),
-                        end = dimensionResource(R.dimen.default_spacing)
-                    )
-                )
-
-                Column {
-                    Text(
-                        text = "Blade / Sword",
-                        style = Typography.bodyLarge,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.padding(
-                            bottom = dimensionResource(R.dimen.very_small_spacing)
-                        )
-                    )
-
-                    Button(
-                        onClick = {},
-                        shape = RoundedCornerShape(dimensionResource(R.dimen.default_rounding)),
-                    ) {
-                        Text(
-                            text = stringResource(R.string.daily_kanji_section_learn_button_label),
-                            style = Typography.bodyLarge,
-                            modifier = Modifier.padding(horizontal = dimensionResource(R.dimen.small_spacing))
-                        )
-                    }
-                }
-            }
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(
-                    top = dimensionResource(R.dimen.default_spacing),
-                ),
-            ) {
-                Box(
-                    modifier = Modifier.padding(end = dimensionResource(R.dimen.small_spacing))
-                ) {
-                    Icon(
-                        painter = painterResource(R.drawable.goals_icon),
-                        contentDescription = stringResource(R.string.daily_goal_section_title),
-                        modifier = Modifier.size(dimensionResource(R.dimen.title_icon_size))
-                    )
-                }
-
-                Text(
-                    text = stringResource(R.string.daily_goal_section_title),
-                    style = Typography.bodyMedium,
-                    fontWeight = FontWeight.SemiBold,
-                )
-            }
-
-            Card(
+            SectionCard(
+                destination = Destination.Radicals,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = dimensionResource(R.dimen.small_spacing))
-            ) {
-                Column(
-                    modifier = Modifier.padding(start = 10.dp)
-                ) {
-                    GoalCard(
-                        true,
-                        "Learn 2 new Kanji",
-                        modifier = Modifier.padding(top = dimensionResource(R.dimen.very_small_spacing))
-                    )
+                    .padding(start = dimensionResource(R.dimen.very_small_spacing))
+                    .weight(1f)
+            )
+        }
 
-                    GoalCard(true, "Review 5 radicals")
-                    GoalCard(false, "Complete Daily Quiz")
-                }
-            }
+        Row(
+            modifier = Modifier.padding(top = dimensionResource(R.dimen.default_spacing))
+        ) {
+            SectionCard(
+                destination = Destination.Hub,
+                modifier = Modifier
+                    .padding(end = dimensionResource(R.dimen.very_small_spacing))
+                    .weight(1f)
+            )
 
-            Row(
-                modifier = Modifier.padding(top = dimensionResource(R.dimen.default_spacing))
-            ) {
-                SectionCard(
-                    destination = Destination.Learn,
-                    modifier = Modifier
-                        .padding(end = dimensionResource(R.dimen.very_small_spacing))
-                        .weight(1f)
-                )
-
-                SectionCard(
-                    destination = Destination.Radicals,
-                    modifier = Modifier
-                        .padding(start = dimensionResource(R.dimen.very_small_spacing))
-                        .weight(1f)
-                )
-            }
-
-            Row(
-                modifier = Modifier.padding(top = dimensionResource(R.dimen.default_spacing))
-            ) {
-                SectionCard(
-                    destination = Destination.Hub,
-                    modifier = Modifier
-                        .padding(end = dimensionResource(R.dimen.very_small_spacing))
-                        .weight(1f)
-                )
-
-                SectionCard(
-                    destination = Destination.Library,
-                    modifier = Modifier
-                        .padding(start = dimensionResource(R.dimen.very_small_spacing))
-                        .weight(1f)
-                )
-            }
+            SectionCard(
+                destination = Destination.Library,
+                modifier = Modifier
+                    .padding(start = dimensionResource(R.dimen.very_small_spacing))
+                    .weight(1f)
+            )
         }
     }
 }
@@ -271,7 +273,7 @@ fun SectionCard(
             Box(
                 modifier = Modifier.padding(end = dimensionResource(R.dimen.small_spacing))
             ) {
-                Icon (
+                Icon(
                     painter = painterResource(destination.defaultIcon),
                     contentDescription = stringResource(destination.prompt),
                     modifier = Modifier.size(dimensionResource(R.dimen.section_card_icon_size))
@@ -285,6 +287,26 @@ fun SectionCard(
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.weight(1f)
             )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun HomePreviewLight() {
+    KanjiMasteryTheme {
+        Scaffold { innerPadding ->
+            HomeScreen(modifier = Modifier.padding(innerPadding))
+        }
+    }
+}
+
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun HomePreviewDark() {
+    KanjiMasteryTheme {
+        Scaffold { innerPadding ->
+            HomeScreen(modifier = Modifier.padding(innerPadding))
         }
     }
 }
