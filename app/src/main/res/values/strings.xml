@@ -21,7 +21,7 @@
 
     <!-- Destination Prompts -->
     <string name="destination_learn_prompt">Learn a new Kanji</string>
-    <string name="destination_radicals_prompt">Radicals Library</string>
-    <string name="destination_practice_prompt">Practice Drawing</string>
+    <string name="destination_radicals_prompt">Learn Radicals</string>
+    <string name="destination_practice_prompt">Practice Lab</string>
     <string name="destination_library_prompt">Kanji Library</string>
 </resources>

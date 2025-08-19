@@ -67,15 +67,15 @@ enum class Destination(
         R.drawable.learn_kanji_icon,
         R.drawable.learn_kanji_icon_selected
     ),
+    Lab(
+        R.string.destination_practice_prompt,
+        R.drawable.practice_icon,
+        R.drawable.practice_icon_selected
+    ),
     Radicals(
         R.string.destination_radicals_prompt,
         R.drawable.learn_radicals_icon,
         R.drawable.learn_radicals_icon_selected
-    ),
-    Practice(
-        R.string.destination_practice_prompt,
-        R.drawable.practice_icon,
-        R.drawable.practice_icon_selected
     ),
     Library(
         R.string.destination_library_prompt,
@@ -276,7 +276,7 @@ fun KanjiApp() {
                     modifier = Modifier.padding(top = dimensionResource(R.dimen.default_spacing))
                 ) {
                     SectionCard(
-                        destination = Destination.Practice,
+                        destination = Destination.Lab,
                         modifier = Modifier
                             .padding(end = dimensionResource(R.dimen.very_small_spacing))
                             .weight(1f)
