@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -107,7 +106,7 @@ fun KanjiApp() {
 
                     Spacer(Modifier.weight(1f))
 
-                    Image(
+                    Icon(
                         painter = painterResource(R.drawable.account),
                         contentDescription = stringResource(R.string.account_settings_description),
                         modifier = Modifier.size(dimensionResource(R.dimen.title_icon_size))
@@ -162,7 +161,7 @@ fun KanjiApp() {
                             modifier = Modifier.padding(end = dimensionResource(R.dimen.small_spacing))
                         )
 
-                        Image(
+                        Icon(
                             painter = painterResource(R.drawable.play_icon),
                             contentDescription = stringResource(R.string.quick_start_button_label),
                             modifier = Modifier.size(dimensionResource(R.dimen.button_content))
@@ -222,7 +221,7 @@ fun KanjiApp() {
                     Box(
                         modifier = Modifier.padding(end = dimensionResource(R.dimen.small_spacing))
                     ) {
-                        Image(
+                        Icon(
                             painter = painterResource(R.drawable.goals_icon),
                             contentDescription = stringResource(R.string.daily_goal_section_title),
                             modifier = Modifier.size(dimensionResource(R.dimen.title_icon_size))
@@ -306,7 +305,7 @@ fun GoalCard(
         Box(
             modifier = Modifier.padding(end = dimensionResource(R.dimen.very_small_spacing))
         ) {
-            Image(
+            Icon(
                 painter = painterResource(if (checked) R.drawable.checked else R.drawable.unchecked),
                 contentDescription = null,
                 modifier = Modifier.size(dimensionResource(R.dimen.title_icon_size))
@@ -335,7 +334,7 @@ fun SectionCard(
             Box(
                 modifier = Modifier.padding(end = dimensionResource(R.dimen.small_spacing))
             ) {
-                Image(
+                Icon (
                     painter = painterResource(destination.defaultIcon),
                     contentDescription = stringResource(destination.prompt!!),
                     modifier = Modifier.size(dimensionResource(R.dimen.section_card_icon_size))
