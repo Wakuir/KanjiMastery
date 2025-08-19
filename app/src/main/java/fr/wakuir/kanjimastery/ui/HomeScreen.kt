@@ -214,7 +214,7 @@ fun HomeScreen() {
                 modifier = Modifier.padding(top = dimensionResource(R.dimen.default_spacing))
             ) {
                 SectionCard(
-                    destination = Destination.Lab,
+                    destination = Destination.Hub,
                     modifier = Modifier
                         .padding(end = dimensionResource(R.dimen.very_small_spacing))
                         .weight(1f)
@@ -273,13 +273,13 @@ fun SectionCard(
             ) {
                 Icon (
                     painter = painterResource(destination.defaultIcon),
-                    contentDescription = stringResource(destination.prompt!!),
+                    contentDescription = stringResource(destination.prompt),
                     modifier = Modifier.size(dimensionResource(R.dimen.section_card_icon_size))
                 )
             }
 
             Text(
-                text = stringResource(destination.prompt!!),
+                text = stringResource(destination.prompt),
                 textAlign = TextAlign.Center,
                 style = Typography.bodyLarge,
                 fontWeight = FontWeight.Bold,

@@ -19,9 +19,18 @@
     <string name="daily_goal_section_title">Today\'s goal</string>
     <!-- TODO: Add goals formatting -->
 
-    <!-- Destination Prompts -->
+    <!-- Destinations -->
+    <string name="destination_home_title">Home page</string>
+    <string name="destination_learn_title">New Kanji</string>
+    <string name="destination_practice_title">Practice Hub</string>
+    <string name="destination_radicals_title">Radicals</string>
+    <string name="destination_library_title">Library</string>
+    <!-- Prompts -->
+    <string name="destination_home_prompt"/>
     <string name="destination_learn_prompt">Learn a new Kanji</string>
+    <string name="destination_practice_prompt">Practice Hub</string>
     <string name="destination_radicals_prompt">Learn Radicals</string>
-    <string name="destination_practice_prompt">Practice Lab</string>
     <string name="destination_library_prompt">Kanji Library</string>
+
+    <string name="navigate_back">Back</string>
 </resources>
