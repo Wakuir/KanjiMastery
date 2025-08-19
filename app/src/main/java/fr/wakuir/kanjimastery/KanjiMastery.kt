@@ -88,7 +88,7 @@ fun KanjiMastery(
         topBar = {
             TopBar(
                 pageTitle = stringResource(currentScreen.pageTitle),
-                canNavigateUp = currentScreen != Destination.Home && navController.previousBackStackEntry != null,
+                canNavigateUp = currentScreen != Destination.Home, // If we are not on home, we are sure we can navigate back
                 navigateUp = {
                     navController.navigateUp()
                 })
